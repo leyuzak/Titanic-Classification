@@ -1,97 +1,55 @@
 # 🚢 Titanic Classification
 
-This project predicts whether a passenger survived the Titanic disaster using machine learning.  
-It demonstrates data preprocessing, exploratory data analysis (EDA), and model building with Python.
+A beginner-friendly machine learning project predicting Titanic passenger survival using Python and Random Forest.
 
 ## 📊 Project Overview
+* **Goal**: Predict passenger survival based on features like age, sex, class, and fare
+* **Dataset**: Titanic dataset (train.csv, test.csv)
+* **Tech Stack**: Python, Pandas, NumPy, Scikit-learn, Matplotlib
+* **Model**: Random Forest Classifier
 
-- **Goal:** Predict passenger survival based on features such as age, sex, ticket class, and fare.  
-- **Dataset:** Titanic dataset from [Kaggle](https://www.kaggle.com/c/titanic).  
-- **Tech Stack:** Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn.  
-- **Models Used:** Logistic Regression, Random Forest, and XGBoost.
+## ⚙️ Approach
 
-## ⚙️ Steps
+### 1. **Data Preprocessing**
+- Removed `Cabin` column (too many missing values)
+- Filled missing `Age` values using Title-based mean imputation
+- Filled missing `Fare` with mean value
+- Filled missing `Embarked` with mode (most frequent value)
 
-1. Data cleaning and preprocessing  
-2. Exploratory Data Analysis (EDA)  
-3. Feature engineering  
-4. Model training and evaluation  
-5. Prediction on test data
+### 2. **Feature Engineering**
+- Extracted `Title` from passenger names (Mr, Mrs, Miss, Master)
+- Grouped rare titles together
+- Converted categorical variables to numeric using `pd.get_dummies()`
 
-## 🚀 Results
+### 3. **Modeling**
+- Split data into train (891 rows) and test (418 rows)
+- Trained Random Forest Classifier
+- Generated predictions for Kaggle submission
 
-Achieved around **80% accuracy** on the test set.
-
-## 📁 Project Structure
+## 📁 Files
 ```
 titanic-classification/
-├── 📁 data/
-│   ├── raw/
-│   │   ├── train.csv
-│   │   └── test.csv
-│   └── processed/
-│       ├── train_processed.csv
-│       └── test_processed.csv
-├── 📁 notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_preprocessing.ipynb
-│   └── 03_modeling.ipynb
-├── 📁 src/
-│   ├── preprocessing.py
-│   ├── feature_engineering.py
-│   └── model.py
-├── 📁 models/
-│   ├── logistic_regression.pkl
-│   ├── random_forest.pkl
-│   └── xgboost.pkl
-├── 📄 requirements.txt
-└── 📄 README.md
-```
-
-## 🛠️ Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/titanic-classification.git
-cd titanic-classification
-
-# Install required packages
-pip install -r requirements.txt
+├── ttrain.csv          # Training data
+├── ttest.csv           # Test data
+├── classification.ipynb # Main notebook
+└── sonuc1.csv          # Predictions
 ```
 
 ## 🚀 Usage
-```python
-# Run the main script
-python src/model.py
+```bash
+# Install dependencies
+pip install pandas numpy scikit-learn matplotlib
 
-# Or explore the notebooks
-jupyter notebook notebooks/01_eda.ipynb
+# Run the notebook
+jupyter notebook classification.ipynb
 ```
 
-## 📈 Model Performance
-
-| Model | Accuracy | Precision | Recall | F1-Score |
-|-------|----------|-----------|--------|----------|
-| Logistic Regression | 78% | 0.76 | 0.72 | 0.74 |
-| Random Forest | 80% | 0.79 | 0.77 | 0.78 |
-| XGBoost | 81% | 0.80 | 0.78 | 0.79 |
-
 ## 📝 Key Features
+✅ Title extraction from names  
+✅ Smart missing value imputation  
+✅ Categorical encoding  
+✅ Random Forest classifier  
 
-- Age imputation using median values
-- Feature engineering (family size, title extraction)
-- Handling missing values in Cabin and Embarked
-- One-hot encoding for categorical variables
-- Feature scaling for numerical variables
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Kaggle for providing the dataset
-- The data science community for inspiration and resources
+MIT License
