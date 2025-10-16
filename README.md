@@ -20,3 +20,18 @@ It demonstrates data preprocessing, exploratory data analysis (EDA), and model b
 Achieved around **80% accuracy** on the test set.
 
 ## 📁 Project Structure
+
+📁 project-name/
+├── 📁 data/
+│   ├── raw/
+│   └── processed/
+├── 📁 notebooks/
+│   └── analysis.ipynb
+├── 📁 src/
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   └── model.py
+├── 📁 models/
+│   └── trained_model.pkl
+├── 📄 requirements.txt
+└── 📄 README.md
